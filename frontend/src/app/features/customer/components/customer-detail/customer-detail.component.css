@@ -1,0 +1,45 @@
+.customer-detail-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .customer-detail-content {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    max-width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .profile-image {
+    flex: 1;
+    max-width: 200px;
+    margin-right: 20px;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .customer-info {
+    flex: 2;
+  }
+  
+  .customer-info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .customer-info p {
+    margin: 5px 0;
+  }
+  
+  .customer-info strong {
+    font-weight: bold;
+  }
+  

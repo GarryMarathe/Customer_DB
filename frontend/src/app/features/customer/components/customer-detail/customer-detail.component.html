@@ -1,0 +1,19 @@
+<div class="customer-detail-modal">
+    <div class="customer-detail-content">
+      <div class="profile-image">
+        <img [src]="'http://localhost:3000/' + customer.photo" alt="Customer Photo" class="full-profile-image" />
+      </div>
+      <div class="customer-info">
+        <h2>Hi, {{ customer.firstName }}</h2>
+        <p><strong>Full Name:</strong> {{ customer.firstName }} {{ customer.lastName }}</p>
+        <p><strong>Gender:</strong> {{ customer.gender }}</p>
+        <p><strong>Email:</strong> {{ customer.email }}</p>
+        <p><strong>Address:</strong> {{ customer.address }}</p>
+        <p><strong>City:</strong> {{ customer.city }}</p>
+        <p><strong>State:</strong> {{ customer.state }}</p>
+        <p><strong>Country:</strong> {{ customer.country }}</p>
+        <p><strong>Hobbies:</strong> {{ customer.hobbies }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,16 @@
+# Ignore env files
+.env
+backend/.env
+frontend/.env
+
+# Ignore node_modules
+
+frontend/node_modules/
+backend/node_modules/
+frontend/build/
+backend/dist/
+
+# Ignore logs and dependency lock files
+
+frontend/package-lock.json
+backend/package-lock.json

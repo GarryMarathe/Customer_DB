@@ -1,0 +1,50 @@
+.customer-list {
+    margin: 40px;
+  }
+  
+  .customer-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .name-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    margin: 10px 1px;
+  }
+  
+  mat-paginator {
+    margin-top: 20px;
+  }
+  
+.name-container{
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Styling for the search bar */
+.search-box {
+  width: 40%;
+  margin-bottom: 20px;
+}
+
+
+/* Optional: Styling for the Material button (if you want to include it) */
+button.primary {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
