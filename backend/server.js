@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
-app.use('/api/customers', router);
+app.use('/api/customer', router);
 
 app.listen(process.env.PORT , () => {
     console.log(`Server is running on port ${process.env.PORT}`);

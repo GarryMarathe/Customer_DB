@@ -15,7 +15,7 @@ export const createCustomerController = async (req,res) => {
     try {
         const customer =  await createCustomer(customerData,photo)  // pass customer data to service
         console.log(customerData)
-        res.status(201).json({message: 'Customer created successfully', customer})
+        res.status(201).json(customer)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
@@ -26,7 +26,7 @@ export const createCustomerController = async (req,res) => {
 export const getAllCustomersController = async (req,res) => {
     try {
         const customer = await getAllCustomers();
-        res.status(200).json({message: 'Customer retrieved successfully', customer})
+        res.status(200).json(customer)
     } catch (error) {
         res.status(500).json({error: error.message})
         
@@ -39,7 +39,7 @@ export const getCustomerByIdController = async (req,res) => {
     try {
         const id = req.params.id;
         const customer = await getCustomerById(id);
-        res.status(200).json({message: 'Customer found', customer})
+        res.status(200).json(customer)
     } catch (error) {
         res.status(404).json({error: error.message})
         
@@ -59,7 +59,7 @@ export const updateCustomerController = async (req,res) => {
     }
     try {
         const updateCustomers = await updateCustomer(id,updatedData);
-        res.status(200).json({message: 'Customer updated successfully', updateCustomers})
+        res.status(200).json(updateCustomer)
     } catch (error) {
         res.status(404).json({error: error.message})
         
@@ -72,7 +72,7 @@ export const deleteCustomerController = async (req,res) => {
     const id = req.params.id;
     try {
         const deleteCustomers = await deleteCustomer(id);
-        res.status(200).json({message: 'Customer deleted successfully', deleteCustomers})
+        res.status(200).json(deleteCustomer)
     } catch(error){
         res.status(404).json({error: error.message})
     }
