@@ -13,23 +13,23 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
   
   
-  createCustomer(customer: FormData): Observable<Customer> {
-    return this.http.post<Customer>(`${this.url}/customers`, customer);
+  createCustomer(customer: FormData): Observable<Customer[]> {
+    return this.http.post<Customer[]>(`${this.url}/customer`, customer);
   }
 
-  getCustomerList(): Observable<Customer> {
-    return this.http.get<Customer>(`${this.url}/customers`);
+  getCustomerList(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.url}/customer`);
   }
 
-  getCustomerById(id: String): Observable<Customer> {
-    return this.http.get<Customer>(`${this.url}/customers/${id}`);
+  getCustomerById(id: String): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.url}/customer/${id}`);
   }
 
-  updateCustomer(id:String, customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(`${this.url}/customers/${id}`, customer);
+  updateCustomer(id:String, customer: FormData): Observable<Customer[]> {
+    return this.http.put<Customer[]>(`${this.url}/customer/${id}`, customer);
   }
 
-  deleteCustomer(id: String): Observable<Customer> {
-    return this.http.delete<Customer>(`${this.url}/customers/${id}`);
+  deleteCustomer(id: String): Observable<Customer[]> {
+    return this.http.delete<Customer[]>(`${this.url}/customer/${id}`);
   }
 }

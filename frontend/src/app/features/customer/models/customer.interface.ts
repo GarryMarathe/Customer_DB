@@ -1,16 +1,15 @@
 export interface Customer {
-    customer: Customer[];
     _id: String,
-    firstName: String,
-    lastName: String,
-    gender: String,
-    email: String,
-    address?:String,
-    city: String,
-    state?: String,
-    country: String,
-    photo: String,
-    hobbies?: String[]
+    firstName: string,
+    lastName: string,
+    gender: string,
+    email: string,
+    address?:string,
+    city: string,
+    state?: string,
+    country: string,
+    photo: string,
+    hobbies?: string[]
 
 
 }

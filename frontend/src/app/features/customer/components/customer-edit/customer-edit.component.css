@@ -1,0 +1,66 @@
+.edit-customer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-side,
+  .right-side {
+    width: 47%;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .gender-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    margin-top: 3vh;
+    margin-left: 45vw;
+
+  }
+  
+  button {
+    width: 200px;
+    font-size: 15px;
+  }
+  
+
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+
+  .file-upload button[type="file"] {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+
+  }
+  
+  .file-upload img.customer-photo {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 50%; /* Make the image circular */
+    margin-bottom: 10px; /* Space between the image and the upload button */
+  }

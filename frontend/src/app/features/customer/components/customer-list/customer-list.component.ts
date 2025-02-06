@@ -24,7 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class CustomerListComponent implements OnInit, AfterViewInit{
   customers: Customer[] = []; // Store all customers
-  filteredCustomerList: MatTableDataSource<Customer> = new MatTableDataSource<Customer>(); // Store the filtered customer list
+  filteredCustomerList = new MatTableDataSource<Customer>(); // Store the filtered customer list
   displayedColumns: string[] = ["serial", "name", "gender", "email", "city", "state", "country", "hobbies", "actions"];
   // dataSource!: MatTableDataSource<Customer>; // Mattabledatasource for pagination
   searchText: string = ''; // New property to bind search input
@@ -52,8 +52,8 @@ export class CustomerListComponent implements OnInit, AfterViewInit{
 
 
   loadCustomers() {
-    this.customerService.getCustomerList().subscribe((data) => {
-      this.customers = data.customer;
+    this.customerService.getCustomerList().subscribe((data: Customer[]) => {
+      this.customers = data;
       this.filteredCustomerList = new MatTableDataSource<Customer>(this.customers);
       // this.dataSource = new MatTableDataSource(this.customers); // Assign customers to MatTableDataSource
       this.filteredCustomerList.paginator = this.paginator; // Assign paginator to MatTableDataSource
@@ -83,7 +83,9 @@ export class CustomerListComponent implements OnInit, AfterViewInit{
   }
 
 
-  openEditDialog() { }
+  openEditDialog(id: string) { 
+    this.router.navigate([`/edit/${id}`])
+  }
 
   // Open delete confirmation dialog
   openDeleteDialog(id: string) {
