@@ -1,0 +1,103 @@
+{
+    "countries": [
+      {
+        "id": 1,
+        "name": "India",
+        "states": [
+          {
+            "id": 1,
+            "name": "Karnataka",
+            "cities": ["Bangalore", "Mysore", "Hubli", "Mangalore"]
+          },
+          {
+            "id": 2,
+            "name": "Gujarat",
+            "cities": ["Ahmedabad", "Surat", "Vadodara", "Rajkot"]
+          },
+          {
+            "id": 3,
+            "name": "Uttar Pradesh",
+            "cities": ["Lucknow", "Kanpur", "Agra", "Varanasi"]
+          },
+          {
+            "id": 4,
+            "name": "Maharashtra",
+            "cities": ["Mumbai", "Pune", "Nagpur", "Nashik"]
+          },
+          {
+            "id": 5,
+            "name": "West Bengal",
+            "cities": ["Kolkata", "Howrah", "Durgapur", "Siliguri"]
+          },
+          {
+            "id": 6,
+            "name": "Tamil Nadu",
+            "cities": ["Chennai", "Coimbatore", "Madurai", "Salem"]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "United States",
+        "states": [
+          {
+            "id": 7,
+            "name": "California",
+            "cities": ["Los Angeles", "San Francisco", "San Diego", "San Jose"]
+          },
+          {
+            "id": 8,
+            "name": "New York",
+            "cities": ["New York City", "Buffalo", "Albany", "Rochester"]
+          },
+          {
+            "id": 9,
+            "name": "Texas",
+            "cities": ["Houston", "Austin", "Dallas", "San Antonio"]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "United Kingdom",
+        "states": [
+          {
+            "id": 10,
+            "name": "England",
+            "cities": ["London", "Manchester", "Birmingham", "Liverpool"]
+          },
+          {
+            "id": 11,
+            "name": "Scotland",
+            "cities": ["Edinburgh", "Glasgow", "Aberdeen", "Dundee"]
+          },
+          {
+            "id": 12,
+            "name": "Wales",
+            "cities": ["Cardiff", "Swansea", "Newport", "Bangor"]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Australia",
+        "states": [
+          {
+            "id": 13,
+            "name": "New South Wales",
+            "cities": ["Sydney", "Newcastle", "Wollongong", "Albury"]
+          },
+          {
+            "id": 14,
+            "name": "Victoria",
+            "cities": ["Melbourne", "Geelong", "Ballarat", "Bendigo"]
+          },
+          {
+            "id": 15,
+            "name": "Queensland",
+            "cities": ["Brisbane", "Gold Coast", "Cairns", "Townsville"]
+          }
+        ]
+      }
+    ]
+  }

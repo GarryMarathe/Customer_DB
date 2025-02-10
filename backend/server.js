@@ -12,7 +12,12 @@ dotenv.config();
 const app = express();
 
 connectDB();
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:4200',  // Angular app URL
+    credentials: true  // Allow cookies to be sent
+};
+
+app.use(cors(corsOptions));
 app.use(cookieParser())
 
 app.use(express.json());

@@ -9,10 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
+import locationData from './location-data.json';
+import { MatOption, MatOptionModule } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-customer-edit',
-  imports: [MatLabel,CommonModule,FormsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatRadioButton,MatRadioModule],
+  imports: [MatLabel,CommonModule,FormsModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatRadioButton,MatRadioModule,MatOption,MatSelect],
   templateUrl: './customer-edit.component.html',
   styleUrl: './customer-edit.component.css'
 })
@@ -26,6 +29,10 @@ export class CustomerEditComponent implements OnInit {
   newPhotoSelected!: boolean;
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
+ // Location data
+ countries = locationData.countries;
+ states: any[] = [];
+ cities: string[] = [];
 
   constructor(
     private route: ActivatedRoute,  // To access the route params
@@ -45,6 +52,7 @@ export class CustomerEditComponent implements OnInit {
         this.data = data;
         console.log(this.data.photo)
         this.currentPhotoUrl = this.data.photo; // Store the current photo URL
+        this.setupLocationData(); // Load location data when customer data is available
         // this.customer = data;
       },
       (error) => {
@@ -57,6 +65,47 @@ export class CustomerEditComponent implements OnInit {
     );
   }
 
+  // Set up the location data for the selected customer
+  setupLocationData() {
+    // Set the available states and cities based on the customer's country and state
+    const country = this.countries.find(c => c.name === this.data.country);
+    if (country) {
+      this.states = country.states;
+      const state = country.states.find(s => s.name === this.data.state);
+      if (state) {
+        this.cities = state.cities;
+      }
+    }
+  }
+
+  // Handle country change event
+  onCountryChange(event: any) {
+    const selectedCountry = event.value;
+    this.states = [];
+    this.cities = [];
+    this.data.state = ''; // Clear the state when the country changes
+    this.data.city = '';  // Clear the city when the state changes
+
+    const country = this.countries.find(c => c.name === selectedCountry);
+    if (country) {
+      this.states = country.states;
+    }
+  }
+
+  // Handle state change event
+  onStateChange(event: any) {
+    const selectedState = event.value;
+    this.cities = [];
+    this.data.city = ''; // Clear the city when the state changes
+
+    const country = this.countries.find(c => c.name === this.data.country);
+    if (country) {
+      const state = country.states.find(s => s.name === selectedState);
+      if (state) {
+        this.cities = state.cities;
+      }
+    }
+  }
 
   // Handle file change (photo upload)
   onFileChange(event: any): void {

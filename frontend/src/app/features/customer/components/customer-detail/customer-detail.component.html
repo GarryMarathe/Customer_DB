@@ -1,19 +1,44 @@
 <div class="customer-detail-modal">
-    <div class="customer-detail-content">
-      <div class="profile-image">
-        <img [src]="'http://localhost:3000/' + customer.photo" alt="Customer Photo" class="full-profile-image" />
-      </div>
-      <div class="customer-info">
-        <h2>Hi, {{ customer.firstName }}</h2>
-        <p><strong>Full Name:</strong> {{ customer.firstName }} {{ customer.lastName }}</p>
-        <p><strong>Gender:</strong> {{ customer.gender }}</p>
-        <p><strong>Email:</strong> {{ customer.email }}</p>
-        <p><strong>Address:</strong> {{ customer.address }}</p>
-        <p><strong>City:</strong> {{ customer.city }}</p>
-        <p><strong>State:</strong> {{ customer.state }}</p>
-        <p><strong>Country:</strong> {{ customer.country }}</p>
-        <p><strong>Hobbies:</strong> {{ customer.hobbies }}</p>
-      </div>
+  <div class="customer-detail-content">
+    <div class="profile-image">
+      <img [src]="'http://localhost:3000/' + customer.photo" alt="Customer Photo" class="full-profile-image" />
+    </div>
+    <div class="customer-info">
+      <h2>Hi, {{ customer.firstName }}</h2>
+      <table class="customer-details-table">
+        <tr>
+          <td><strong>Full Name:</strong></td>
+          <td>{{ customer.firstName }} {{ customer.lastName }}</td>
+        </tr>
+        <tr>
+          <td><strong>Gender:</strong></td>
+          <td>{{ customer.gender }}</td>
+        </tr>
+        <tr>
+          <td><strong>Email:</strong></td>
+          <td>{{ customer.email }}</td>
+        </tr>
+        <tr>
+          <td><strong>Address:</strong></td>
+          <td>{{ customer.address }}</td>
+        </tr>
+        <tr>
+          <td><strong>City:</strong></td>
+          <td>{{ customer.city }}</td>
+        </tr>
+        <tr>
+          <td><strong>State:</strong></td>
+          <td>{{ customer.state }}</td>
+        </tr>
+        <tr>
+          <td><strong>Country:</strong></td>
+          <td>{{ customer.country }}</td>
+        </tr>
+        <tr>
+          <td><strong>Hobbies:</strong></td>
+          <td>{{ customer.hobbies }}</td>
+        </tr>
+      </table>
     </div>
   </div>
-  
+</div>

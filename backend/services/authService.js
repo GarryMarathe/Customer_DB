@@ -14,7 +14,7 @@ export function setUser(user) {
        
     };
 
-    return jwt.sign(payload, secret, { expiresIn: '5m' }); 
+    return jwt.sign(payload, secret, { expiresIn: '1h' }); 
 }
 
 export function getUser(token) {

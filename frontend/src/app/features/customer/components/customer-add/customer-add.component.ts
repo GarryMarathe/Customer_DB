@@ -9,11 +9,15 @@ import { CommonModule } from '@angular/common';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
+import locationData from './location-data.json';
+import { MatOption } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @Component({
   selector: 'app-customer-add',
   standalone: true,
-  imports: [MatLabel, CommonModule, FormsModule, ReactiveFormsModule, MatError, MatRadioModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatSnackBarModule],
+  imports: [MatLabel, CommonModule, FormsModule, ReactiveFormsModule, MatError, MatRadioModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatSnackBarModule,MatOption,MatSelectModule],
   templateUrl: './customer-add.component.html',
   styleUrl: './customer-add.component.css'
 })
@@ -21,6 +25,12 @@ export class CustomerAddComponent implements OnInit {
 
   customerForm!: FormGroup;
   fileName: any;
+
+
+  // Location data
+  countries = locationData.countries;
+  states: any[] = [];
+  cities: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -32,6 +42,7 @@ export class CustomerAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.setupLocationListeners();
   }
 
   createForm() {
@@ -50,6 +61,34 @@ export class CustomerAddComponent implements OnInit {
     })
   }
 
+  setupLocationListeners() {
+    // Listen for country changes
+    this.customerForm.get('country')?.valueChanges.subscribe(countryName => {
+      this.states = [];
+      this.cities = [];
+      this.customerForm.patchValue({ state: '', city: '' }, { emitEvent: false });
+      
+      const country = this.countries.find((c: { name: any; }) => c.name === countryName);
+      if (country) {
+        this.states = country.states;
+      }
+    });
+
+    // Listen for state changes
+    this.customerForm.get('state')?.valueChanges.subscribe(stateName => {
+      this.cities = [];
+      this.customerForm.patchValue({ city: '' }, { emitEvent: false });
+      
+      const country = this.countries.find((c: { name: any; }) => c.name === this.customerForm.get('country')?.value);
+      if (country) {
+        const state = country.states.find((s: { name: any; }) => s.name === stateName);
+        if (state) {
+          this.cities = state.cities;
+        }
+      }
+    });
+  }
+  
   createCustomer() {
     if (this.customerForm.invalid) {
       return;

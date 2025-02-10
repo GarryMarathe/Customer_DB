@@ -35,7 +35,7 @@ export const handleUserLogin = async (req, res) => {
     }
     const token = setUser(user);
     res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });  // Store token in cookie for 1 hour
-    
+    console.log(token)
     return res.status(200).json({ message: "Login successful", token });
 };
 
